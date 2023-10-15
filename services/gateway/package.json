@@ -1,0 +1,17 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "API Gateway",
+  "main": "index.js",
+  "author": "Marcus <trungdipdo5@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "apollo-server": "^3.12.1",
+    "graphql": "^16.8.1",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.7"
+  }
+}
