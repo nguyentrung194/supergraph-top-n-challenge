@@ -14,20 +14,22 @@ module.exports = class {
           (e) => {
             if (e.name.value == "posts") {
               e.arguments = [];
-              e.arguments.push({
-                kind: "Argument",
-                name: {
-                  kind: "Name",
-                  value: "limit",
-                  loc: { start: 105, end: 110 },
-                },
-                value: {
-                  kind: "IntValue",
-                  value: args[1].limit,
-                  loc: { start: 48, end: 49 },
-                },
-                loc: { start: 112, end: 122 },
-              });
+              if (args[1].limit) {
+                e.arguments.push({
+                  kind: "Argument",
+                  name: {
+                    kind: "Name",
+                    value: "limit",
+                    loc: { start: 105, end: 110 },
+                  },
+                  value: {
+                    kind: "IntValue",
+                    value: args[1].limit,
+                    loc: { start: 48, end: 49 },
+                  },
+                  loc: { start: 112, end: 122 },
+                });
+              }
               e.arguments.push({
                 kind: "Argument",
                 name: {
@@ -60,6 +62,7 @@ module.exports = class {
       args[2],
       args_clone,
     ]);
+    console.log(documentString);
     return sendRequest(`${POSTS_URL}/graphql?query=${documentString}`, "posts");
   }
 };
